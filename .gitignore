@@ -1,0 +1,5 @@
+# Licensed background data - never commit
+entries_with_impacts.csv
+*.impacts.csv
+__pycache__/
+.pytest_cache/

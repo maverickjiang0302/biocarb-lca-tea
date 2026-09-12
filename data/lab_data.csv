@@ -1,0 +1,14 @@
+quantity,condition,time_or_age,value,unit,uncertainty,source,note
+carbonation_efficiency,no TA (0),0 min,17,%,not reported,"v19 Fig. 1a","includes pre-existing carbonate in the hydrated paste"
+carbonation_efficiency,no TA (0),30 min,41,%,not reported,"v19 Fig. 1a",
+carbonation_efficiency,no TA (0),60 min,60,%,not reported,"v19 Fig. 1a",
+carbonation_efficiency,TA 8T,0 min,16,%,not reported,"v19 Fig. 1a",
+carbonation_efficiency,TA 8T,30 min,52,%,not reported,"v19 Fig. 1a",
+carbonation_efficiency,TA 8T,60 min,80,%,not reported,"v19 Fig. 1a",
+co2_uptake,TA 8T,60 min,0.365,kg CO2/kg RCF,not reported,"v19 Sec. 2.1 (TGA)","measured value, lab hydrated OPC paste (CaO 57.83 wt%)"
+compressive_strength,OPC control,3 d,33,MPa,error bar shown,"v19 Fig. 1b","n not reported"
+compressive_strength,30% BioCarb RCF,3 d,29,MPa,error bar shown,"v19 Fig. 1b",
+compressive_strength,OPC control,7 d,39,MPa,error bar shown,"v19 Fig. 1b",
+compressive_strength,30% BioCarb RCF,7 d,38,MPa,error bar shown,"v19 Fig. 1b",
+compressive_strength,OPC control,28 d,47,MPa,error bar shown,"v19 Fig. 1b",
+compressive_strength,30% BioCarb RCF,28 d,52,MPa,error bar shown,"v19 Fig. 1b",

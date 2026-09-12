@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: "BioCarb harmonized LCA-TEA: carbonated recycled concrete fines as a drop-in SCM"
+message: "If you use this model, please cite the associated article and this repository."
+type: software
+authors:
+  - family-names: "[AUTHOR SURNAME]"
+    given-names: "[GIVEN NAME]"
+    affiliation: "[Institution]"
+version: "1.1.0"
+date-released: "2026-09-10"
+license: MIT
+repository-code: "https://github.com/[org]/biocarb-lca-tea"
+keywords: ["recycled concrete fines", carbonation, "supplementary cementitious material", "life cycle assessment", "techno-economic analysis"]

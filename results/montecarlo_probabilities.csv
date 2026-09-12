@@ -1,0 +1,8 @@
+,probability
+P(GWP BC_B < FA_B),1.0
+P(GWP BC_B < LC3_B),0.788
+P(GWP BC_A < FA_A),0.0
+P(MSP BC_B < FA_B),0.001
+P(MSP BC_B < LC3_B),0.31
+P(MSP BC_B < IL_B),0.384
+P(MSP BC_A < FA_A),0.0

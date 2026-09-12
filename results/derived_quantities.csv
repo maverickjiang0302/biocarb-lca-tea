@@ -1,0 +1,7 @@
+parameter,value
+electricity_coproduct_kWh_per_kg_mortar,0.011296137050506671
+co2_uptake_field_kg_per_kg_rcf,0.14949901925820255
+co2_new_lab_from_CE_kg_per_kg_rcf,0.28818427612339514
+co2_total_carbonate_lab_from_CE_kg_per_kg_rcf,0.3630668045649073
+rcf_per_kg_mortar,0.06875954616268873
+co2_supplied_per_kg_mortar,0.01027948471596107

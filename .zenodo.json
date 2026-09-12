@@ -1,0 +1,9 @@
+{
+  "title": "BioCarb harmonized LCA-TEA model, inventory and results (v1.1.0)",
+  "upload_type": "software",
+  "description": "Python model, life-cycle inventory, techno-economic parameters, results and figures for the manuscript 'Carbon-storing recycled concrete fines as a drop-in supplementary cementitious material: harmonized life-cycle and techno-economic assessment across deployment scales'. Licensed background unit impact scores (ecoinvent 3.7 / NETL openLCA) are not included; a schema and regeneration instructions are provided.",
+  "creators": [{"name": "[Surname, Given]", "affiliation": "[Institution]"}],
+  "license": "MIT",
+  "keywords": ["recycled concrete fines", "mineral carbonation", "supplementary cementitious material", "LCA", "TEA", "tannic acid"],
+  "related_identifiers": [{"identifier": "[DOI of article]", "relation": "isSupplementTo", "scheme": "doi"}]
+}

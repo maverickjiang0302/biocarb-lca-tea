@@ -1,0 +1,4 @@
+item,model_kgCO2e_per_kg,reference_kgCO2e_per_kg,reference_source,deviation_pct
+"Type IL, component-built",0.8250818183289998,0.846,PCA 2021 industry-average PLC EPD,-2.472598306264795
+"Portland, component-built",0.8796833728698997,0.922,PCA 2021 industry-average portland cement EPD,-4.589655870943632
+"Portland, component-built",0.8796833728698997,0.924749755,"ecoinvent market for cement, Portland | US",-4.873359726394333
