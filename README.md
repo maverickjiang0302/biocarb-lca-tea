@@ -13,7 +13,7 @@ data/
   tea_parameters.csv      economic parameters (2024 USD)
   equipment.csv           equipment sizing/costing basis (vendor quotes and cost correlations)
   impact_factor_map.csv   dataset keys -> database process names and UUIDs (no impact values)
-  lab_data.csv            laboratory data exactly as reported in v19 (Fig. 2)
+  lab_data.csv            laboratory data as reported (Fig. 2)
   literature_uptake.csv   literature CO2-uptake data and feedstock CaO (Table 1 / S18)
   abatement_cost_literature.csv  benchmark abatement costs (Fig. 8b / S19)
 src/
