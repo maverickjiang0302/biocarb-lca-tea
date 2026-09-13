@@ -82,9 +82,8 @@ out = []
 skip_table = False
 for l in lines:
     if l.strip() in ("**\\**", "## ", "##"): continue
-    if l.startswith("+---") or (skip_table and (l.startswith("|") or l.startswith("+"))):
-        skip_table = True; continue
-    skip_table = False
+    if l.startswith(("|", "+-", "+=")):      # the superseded Table 1 grid (the manuscript has no other tables)
+        continue
     l = re.sub(r"\{#[a-z0-9-]+\}", "", l).rstrip()
     l = re.sub(r"\{width=\"[^\"]+\" height=\"[^\"]+\"\}", "", l)
     out.append(l)
@@ -111,8 +110,7 @@ def replace_para(prefix, new):
     lines[idx[0]] = new
 
 # ------------------------------------------------------------------ front matter -----------------------------------
-header = ['---', 'title: "Biomolecule-regulated carbonation (BioCarb) as a drop-in supplementary cementitious material (SCM): harmonized life-cycle and techno-economic assessment"',
-          'subtitle: "Manuscript v21 (prepared for Environmental Science & Technology, Research Article)"', '---', '']
+header = ['---', 'title: "Biomolecule-regulated carbonation (BioCarb) as a drop-in supplementary cementitious material (SCM): harmonized life-cycle and techno-economic assessment"', '---', '']
 lines = header + lines
 
 # ------------------------------------------------------------------ abstract ---------------------------------------
@@ -125,6 +123,37 @@ edit("Carbonated recycled concrete fines (RCF) can store CO~2~ and have potentia
 edit("Carbonated recycled concrete fines (RCF) can store CO~2~ and have potential",
      "The slurry route outperforms Type IL mortar, 30% fly ash and LC3 in global warming potential, while only modestly increasing the minimum selling price compared to 30% fly ash and LC3. The dried route, in contrast, incurs a significant penalty in minimum selling price even compared to IL cement (6.28 vs. 5.18 ¢ kg^−1^) and underperforms 30% fly ash and LC3 in global warming potential.",
      f"The slurry route outperforms Type IL mortar, 30 % fly ash and LC3 in global warming potential (0.145 versus 0.210, 0.152 and 0.149 kg CO~2~e kg^−1^) at a minimum selling price of {N['msp_bcb']} ¢ kg^−1^, below Type IL ({N['msp_ilb']}) and modestly above 30 % fly ash ({N['msp_fab']}) and LC3 ({N['msp_lc3b']}). The dried route, in contrast, incurs a significant penalty in minimum selling price even relative to Type IL mortar ({N['msp_bca']} versus {N['msp_ila']} ¢ kg^−1^) and underperforms 30 % fly ash and LC3 in global warming potential.")
+
+# ------------------------------------------------------------------ introduction (R1-7, R3-1) -------------------------
+edit("Cement production accounts for roughly 8 %", "roughly 8 % of anthropogenic greenhouse-gas emissions,^1--3^", "roughly 8 % of anthropogenic CO~2~ emissions,^1--3^")
+edit("We previously showed that tannic acid (TA) regulates",
+     "We previously showed that tannic acid (TA) regulates CaCO~3~ nucleation during CO~2~ mineralization,^22^ and here we report",
+     "We previously showed that tannic acid (TA) regulates CaCO~3~ nucleation during CO~2~ mineralization.^22^ TA has also been applied to recycled concrete fines and aggregates as a surface or activation treatment that improves hydration, pore structure and interfacial bonding;^55--58^ here it is used to regulate the carbonation reaction itself. We report")
+
+# ------------------------------------------------------------------ reviewer-driven additions ---------------------------
+# R1-9: cement as the driver of concrete emissions; carbonation and displacement in separate sentences
+edit("Cement production accounts for roughly 8 %",
+     "Clinker substitution with supplementary cementitious materials (SCMs) remains the largest near-term lever,^5,6^ but the two incumbent routes are constrained.",
+     "Because clinker production causes most of the greenhouse-gas emissions of concrete and mortar, replacing part of the cement with supplementary cementitious materials (SCMs) remains the largest near-term lever,^5,6^ but the two incumbent routes are constrained.")
+edit("Recycled concrete fines (RCF), the paste-rich fraction",
+     "Their calcium content can be carbonated to stable carbonates while the product serves as a filler-plus-reactive SCM.^11--13^",
+     "Their calcium content can be carbonated to stable carbonates.^11--13^ The carbonated product can then replace part of the cement as a filler-plus-reactive SCM, so that its climate benefit arises mainly from the cement it displaces and only secondarily from the CO~2~ it stores.")
+# R1-2: age and preparation of the model feedstock
+edit("Simulated RCF was prepared from hydrated",
+     "Simulated RCF was prepared from hydrated ordinary Portland cement paste (CaO 57.8 wt %, Table S1) ground to \\<75 µm; field demolition fines differ (Section 2.3).",
+     "Simulated RCF was prepared from hydrated ordinary Portland cement paste (oxide composition by XRF, CaO 57.8 wt %, Table S1) that had been cured under standard conditions for more than 28 days so that it contained mature hydrate phases, then crushed, dried and ground to \\<75 µm (Text S1); field demolition fines differ in paste content, carbonation history and inert fraction (Section 2.3).")
+# R2-1: why a mass-based functional unit at a fixed mix design is defensible here
+edit("The captured CO~2~ used by BioCarb is modelled",
+     "A strength-normalized functional unit is discussed in Section 3.4.",
+     "All mortars share one mix design (binder:sand:water 1:2.82:0.50), and the BioCarb mortar met or exceeded the control strength at 28 d at that mix design (Section 3.1), so a mass-based functional unit does not favour BioCarb; a strength-normalized functional unit is discussed in Section 3.4.")
+# R1-3: which inputs are laboratory-derived and which are industrial-scale
+edit("All inventories are generated per kg of mortar",
+     "Key choices are summarized here.",
+     "Laboratory data enter the model only through the carbonation chemistry (carbonation efficiency, pre-existing carbonate, tannic-acid dose, liquid-to-solid ratio and water retention; Text S1); all equipment energies, sizes and costs are industrial-scale values from vendor specifications, engineering correlations and published prices (Tables S3, S7, S8, S10 and S11), so laboratory inefficiencies are not carried into the plant model. Key choices are summarized here.")
+# R1-6: explicit statement of limitations in the concluding section
+edit("Three conclusions follow. First, on a harmonized basis",
+     "Priorities for the next stage are field-RCF carbonation and strength testing,",
+     "The assessment rests on laboratory data for a simulated RCF and on mortar-cube strength alone; durability, rheology, shrinkage and setting behaviour, and the performance of field RCF with lower and variable CaO content remain to be established. Priorities for the next stage are therefore field-RCF carbonation and strength testing,")
 
 # ------------------------------------------------------------------ methods ----------------------------------------
 edit("The captured CO~2~ used by BioCarb is modelled",
@@ -192,9 +221,14 @@ lines[i50:i50 + 1] = [lines[i50],
     "(51) Siriruang, C.; Toochinda, P.; Julnipitawong, P.; Tangtermsirikul, S. CO~2~ Capture Using Fly Ash from Coal Fired Power Plant and Applications of CO~2~-Captured Fly Ash as a Mineral Admixture for Concrete. *J. Environ. Manage.* **2016**, *170*, 70--78.",
     "(52) Pei, S.-L.; Pan, S.-Y.; Gao, X.; Fang, Y.-K.; Chiang, P.-C. Efficacy of Carbonated Petroleum Coke Fly Ash as Supplementary Cementitious Materials in Cement Mortars. *J. Clean. Prod.* **2018**, *180*, 689--697.",
     "(53) Chen, K.-W.; Pan, S.-Y.; Chen, C.-T.; Chen, Y.-H.; Chiang, P.-C. High-Gravity Carbonation of Basic Oxygen Furnace Slag for CO~2~ Fixation and Utilization in Blended Cement. *J. Clean. Prod.* **2016**, *124*, 350--360.",
-    "(54) Davis, R.; Kinchin, C.; Markham, J.; Tan, E.; Laurens, L.; Sexton, D.; Knorr, D.; Schoen, P.; Lukas, J. *Process Design and Economics for the Conversion of Algal Biomass to Biofuels: Algal Biomass Fractionation to Lipid- and Carbohydrate-Derived Fuel Products*; NREL/TP-5100-62368; National Renewable Energy Laboratory: Golden, CO, 2014."]
+    "(54) Davis, R.; Kinchin, C.; Markham, J.; Tan, E.; Laurens, L.; Sexton, D.; Knorr, D.; Schoen, P.; Lukas, J. *Process Design and Economics for the Conversion of Algal Biomass to Biofuels: Algal Biomass Fractionation to Lipid- and Carbohydrate-Derived Fuel Products*; NREL/TP-5100-62368; National Renewable Energy Laboratory: Golden, CO, 2014.",
+    "(55) Wang, L.; Wang, J.; Wang, H.; Fang, Y.; Shen, W.; Chen, P.; Xu, Y. Eco-Friendly Treatment of Recycled Concrete Fines as Supplementary Cementitious Materials. *Constr. Build. Mater.* **2022**, *322*, 126491.",
+    "(56) Proença, M. P.; Oliveira, D. R. B.; de Souza Risson, K. D. B.; Possan, E. CDW Powder Activated by Mechanical, Thermal and Tannic Acid Treatment: An Option for Circularity in Construction. *Waste Biomass Valoriz.* **2025**, *16*, 2367--2390.",
+    "(57) Wang, H.; Wang, L.; Xu, Y.; Ge, Y.; Wang, X.; Li, D.; Cui, L. Bio-Inspired Functionalization of Recycled Concrete Powder for Better Performance of Alkali-Activated Slag/Recycled Concrete Powder. *Constr. Build. Mater.* **2024**, *449*, 138393.",
+    "(58) Wang, L.; Xu, H.; Xu, J.; Shen, W.; Wang, H.; Ge, Y.; Cheng, W. Tannic Acid Treatment of Fine Recycled Concrete Aggregates (RCAs) for Better Impact Resistance Performance of Cementitious Materials. *Mech. Time-Depend. Mater.* **2025**, *29*, 101."]
 
 text = "\n".join(lines)
+text = text.replace(" Fig. 8 puts these numbers next to the few published values", "\n\nFig. 8 puts these numbers next to the few published values")   # separate paragraph, as in the authors' file
 # SI Table S2 was deleted: renumber Table S3..S19 -> S2..S18 in every cross-reference (single pass; the source is always the v20 text)
 assert "Table S2" not in text, [l for l in lines if "Table S2" in l]
 def _renum_group(m):
