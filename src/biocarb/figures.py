@@ -101,7 +101,8 @@ def fig_breakeven():
     BioCarb-minus-reference differences and crossings are identical to the equal-functional-unit form, while the
     IL and FA references stay flat when a BioCarb parameter (and hence E) is swept. Absolute values are therefore
     lower than in Fig. 3 / Table S13 by E x 0.942 kg CO2e (0.011 at the base case).
-    MSP: % of the same-scale Type IL mortar; the FA line is drawn per scale (86.5 % at A, 87.7 % at B). The step
+    MSP: % of the same-scenario Type IL mortar; one fly-ash reference line is drawn, scenario B (87.7 %; scenario A
+    would be 86.5 %), so that both rows carry the same IL and FA baselines. The step
     in the dry-mix curve between 0.25 and 0.30 replacement is the second filter-press unit (filter area > 80 m2
     per unit, tea.size_biocarb_unit); it is explained in the caption, not annotated."""
     sw = pd.read_csv(RES / "sweeps.csv")
@@ -112,18 +113,18 @@ def fig_breakeven():
         d = sw[sw.parameter == par].pivot_table(index="value", columns="scenario", values="GWP_credited")
         ax.plot(d.index, d["BC_A"], "-", color=COL["BC"], lw=1.2, alpha=0.6, label="BioCarb dry-mix (A)")
         ax.plot(d.index, d["BC_B"], "-", color=COL["BC"], lw=2.0, label="BioCarb ready-mix (B)")
-        ax.plot(d.index, d["IL_B"], "--", color=COL["IL"], lw=1.2, label="Type IL")
-        ax.plot(d.index, d["FA_B"], "--", color=COL["FA"], lw=1.2, label="IL + 30% fly ash")
+        ax.plot(d.index, d["IL_B"], "--", color=COL["IL"], lw=1.2, label="Type IL (B)")
+        ax.plot(d.index, d["FA_B"], "--", color=COL["FA"], lw=1.2, label="IL + 30% fly ash (B)")
         if par == "repl":
-            ax.axvspan(0.30, d.index.max(), color="grey", alpha=0.12); ax.text(0.31, ax.get_ylim()[0] + 0.002, "strength\nnot verified", fontsize=10.5, va="bottom")
+            ax.axvspan(0.30, d.index.max(), color="grey", alpha=0.12)
+            ax.text(d.index.max() - 0.005, 0.5 * (d["IL_B"].iloc[0] + d["FA_B"].iloc[0]), "strength\nnot verified", fontsize=8.5, ha="right", va="center")
         ax.set_xlabel(xl, fontsize=10); ax.set_ylabel("GWP (kg CO$_2$e / kg mortar),\nco-product electricity credited", fontsize=10)
     axes[0, 0].legend(fontsize=9, frameon=False)
     for ax, (par, xl) in zip(axes[1], ms):
         d = sw[sw.parameter == par].pivot_table(index="value", columns="scenario", values="MSP")
         ax.plot(d.index, 100 * d["BC_A"] / d["IL_A"], "-", color=COL["BC"], lw=1.2, alpha=0.6, label="BioCarb dry-mix (A)")
         ax.plot(d.index, 100 * d["BC_B"] / d["IL_B"], "-", color=COL["BC"], lw=2.0, label="BioCarb ready-mix (B)")
-        ax.axhline(100, ls="--", color=COL["IL"], lw=1.2, label="Type IL (= 100)")
-        ax.plot(d.index, 100 * d["FA_A"] / d["IL_A"], "--", color=COL["FA"], lw=1.2, alpha=0.6, label="IL + 30% fly ash (A)")
+        ax.axhline(100, ls="--", color=COL["IL"], lw=1.2, label="Type IL (B; = 100)")
         ax.plot(d.index, 100 * d["FA_B"] / d["IL_B"], "--", color=COL["FA"], lw=1.2, label="IL + 30% fly ash (B)")
         if par == "repl":
             ax.axvspan(0.30, d.index.max(), color="grey", alpha=0.12)
