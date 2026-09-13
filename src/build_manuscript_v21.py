@@ -136,6 +136,9 @@ edit("Equipment is sized from the inventory",
 
 # ------------------------------------------------------------------ 3.1 ---------------------------------------------
 edit("With TA, the carbonate fraction of CaO rose", "based on real-world RCF compositions reported in the literature (SI Table Sxxx).", "based on the CaO contents reported for real-world RCF (Table S5).")
+edit("Simulated RCF was prepared from hydrated", "These data (Fig. 2, Table S2) are reported as measured;", "These data (Fig. 2) are reported as measured;")
+edit("**Figure 2.**", " (n and standard deviations in Table S2).", ".")
+edit("MSP is the plant-gate price", "7-yr MACRS, 21 % tax, 2024 USD; Text S4, Table S11).", "7-yr MACRS, 21 % tax, 2024 USD; NREL discounted-cash-flow convention,^54^ Text S4, Table S11).")
 replace_para("Table 1 places these values among reported",
      f"Table 1 places these values among reported carbonation results for RCF and other alkaline wastes. Per kilogram of feedstock, reported uptakes range from 0.03 (biomass and lignite fly ash) to 0.27 (laboratory paste, NaOH-assisted), and the spread is governed by CaO content rather than by process performance: real demolition fines with 25--30 wt % CaO cannot exceed \\~0.2 kg kg^−1^ even at complete conversion. Normalizing each value to the theoretical uptake of its feedstock (apparent carbonation efficiency, Eq. S24, Table S18) puts the direct aqueous, dry and semi-dry processes at {N['ce_lo']}--{N['ce_hi']} % and the high-gravity slag process at \\~{N['ce_slag']} %; BioCarb's 80 % total carbonate (64 % newly fixed) in 60 min at ambient conditions is at the upper end for cement-derived fines. The CaO values behind Table S18 are taken from the cited papers where reported and otherwise from typical compositions for the feedstock class, so the apparent efficiencies are indicative.")
 
@@ -173,6 +176,9 @@ replace_para("Two qualifications govern the reading.",
 replace_para("**Figure 8.**",
      "**Figure 8.** Marginal abatement cost per tonne of CO~2~e avoided (2024 USD; negative = net saving). Top: this study, from the mortar producer's perspective at market prices; diamonds are base-case values and bars the 5th--95th percentile range over the Monte Carlo draws (arrows: range extends beyond the axis). Middle: concrete-producer values derived from the SDSN batching-plant study (Table S19).^49^ Bottom: the premium a cement buyer would face per tonne avoided if kiln CO~2~ capture and storage were passed through (Table S19).^46--48^ Cement-producer costs at clinker production cost are not comparable and are listed in Table S19 only.")
 
+# ------------------------------------------------------------------ data availability ------------------------------
+edit("**Data Availability Statement.**", 'https://github.com/\\[org\\]/biocarb-lca-tea', "https://github.com/maverickjiang0302/biocarb-lca-tea")
+
 # ------------------------------------------------------------------ references -------------------------------------
 edit("(20) Cunningham, P. R.", "*197*, 107xxx.", "*197*, 107772.")
 replace_para("(49) ", "(49) Sustainable Development Solutions Network; Saoradh Enterprise Partners. *Life Cycle Assessment (LCA) and Cost-Benefit Analysis for Low Carbon Concrete and Cement Mix Designs*; SDSN, 2022.")
@@ -181,9 +187,15 @@ i50 = [i for i, l in enumerate(lines) if l.startswith("(50) ")][0]
 lines[i50:i50 + 1] = [lines[i50],
     "(51) Siriruang, C.; Toochinda, P.; Julnipitawong, P.; Tangtermsirikul, S. CO~2~ Capture Using Fly Ash from Coal Fired Power Plant and Applications of CO~2~-Captured Fly Ash as a Mineral Admixture for Concrete. *J. Environ. Manage.* **2016**, *170*, 70--78.",
     "(52) Pei, S.-L.; Pan, S.-Y.; Gao, X.; Fang, Y.-K.; Chiang, P.-C. Efficacy of Carbonated Petroleum Coke Fly Ash as Supplementary Cementitious Materials in Cement Mortars. *J. Clean. Prod.* **2018**, *180*, 689--697.",
-    "(53) Chen, K.-W.; Pan, S.-Y.; Chen, C.-T.; Chen, Y.-H.; Chiang, P.-C. High-Gravity Carbonation of Basic Oxygen Furnace Slag for CO~2~ Fixation and Utilization in Blended Cement. *J. Clean. Prod.* **2016**, *124*, 350--360."]
+    "(53) Chen, K.-W.; Pan, S.-Y.; Chen, C.-T.; Chen, Y.-H.; Chiang, P.-C. High-Gravity Carbonation of Basic Oxygen Furnace Slag for CO~2~ Fixation and Utilization in Blended Cement. *J. Clean. Prod.* **2016**, *124*, 350--360.",
+    "(54) Davis, R.; Kinchin, C.; Markham, J.; Tan, E.; Laurens, L.; Sexton, D.; Knorr, D.; Schoen, P.; Lukas, J. *Process Design and Economics for the Conversion of Algal Biomass to Biofuels: Algal Biomass Fractionation to Lipid- and Carbohydrate-Derived Fuel Products*; NREL/TP-5100-62368; National Renewable Energy Laboratory: Golden, CO, 2014."]
 
 text = "\n".join(lines)
+# SI Table S2 was deleted: renumber Table S3..S19 -> S2..S18 in every cross-reference (single pass; the source is always the v20 text)
+assert "Table S2" not in text, [l for l in lines if "Table S2" in l]
+def _renum_group(m):
+    return re.sub(r"S(\d+)", lambda k: f"S{int(k.group(1)) - 1 if int(k.group(1)) >= 3 else int(k.group(1))}", m.group(0))
+text = re.sub(r"Tables? S\d+(?:(?:, | and |–|-)S\d+)*", _renum_group, text)
 assert "v19" not in text, [l for l in lines if "v19" in l]
 (M / "manuscript_v21.md").write_text(text, encoding="utf-8")
 print("wrote manuscript_v21.md;", len(lines), "lines")

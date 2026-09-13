@@ -1,44 +1,44 @@
-name,value,unit,description,source,mc_dist,mc_low,mc_high
-binder,0.231579,kg/kg mortar,"Total binder (cement + SCM) per kg of mortar; mix design binder:sand:water = 1:2.818:0.50 (ASTM C109-type mortar)","v19 SI Table S1",,,
-sand,0.652632,kg/kg mortar,"Sand per kg mortar","v19 SI Table S1",,,
-water,0.115789,kg/kg mortar,"Mixing water per kg mortar (w/b = 0.50)","v19 SI Table S1",,,
-repl,0.30,kg SCM/kg binder,"Mass fraction of binder replaced by SCM (RCF on uncarbonated basis; fly ash). Strength verified for lab-paste RCF only.","v19 lab mix; Fig. 1b",uniform_sa,0.15,0.45
-repl_fa,0.30,kg SCM/kg binder,"Fly-ash replacement level in the reference mortars (held constant when the BioCarb replacement level is varied)","industry-typical Class F replacement",,,
-cao_field,0.30,kg CaO/kg RCF,"CaO content of field recycled concrete fines. Literature range 11-46 wt%: Korean survey of 20 recycling plants 15-30% (road-aggregate plants 28-31%); RWCP China 11.4%; Egypt RCP 20.5%; paste-rich fines 45-46%","Lee et al. 2025 Recycling 10:17; Sci Rep 2024 PMC11547463; J Eng Appl Sci 2026 s44147-026-00899; Sci Rep 2026 s41598-026-46343; Sustainability 2025 17:1506",triangular,0.15,0.45
-cao_lab,0.5783,kg CaO/kg RCF,"CaO of laboratory hydrated OPC paste used in experiments (XRF)","v19 Table 1",,,
-CE,0.80,-,"Total carbonate fraction of CaO after 60 min with TA as measured by TGA (Fig. 1a); includes pre-existing carbonate ce0. Net (new) conversion = CE - ce0 (Eq. S1)","v19 Fig. 1a",uniform,0.70,0.85
-ce0_lab,0.165,-,"Pre-existing carbonate fraction of total CaO in the uncarbonated laboratory paste (CE at t = 0 in Fig. 1a, 16-17 %)","v19 Fig. 1a",,,
-ce0_field,0.165,-,"Pre-existing carbonate fraction of total CaO in field RCF; assumed equal to the lab paste in the base case. Demolition fines are often more carbonated (weathering), so the range extends to 0.40","assumption; range from literature on aged concrete fines",uniform,0.10,0.40
-co2_uptake_lab_measured,0.365,kg CO2/kg RCF,"Measured total carbonate CO2 in the carbonated laboratory product (TGA, = CE x theoretical); reported unchanged as raw data. New CO2 fixed during carbonation = (CE - ce0_lab) x 0.454 = 0.288 kg/kg","v19 Sec. 2.1 (confirmed)",,,
-util,1.00,-,"CO2 utilization in carbonation column; (1-util) vented as direct emission","user decision; sensitivity 0.8-1.0",uniform,0.80,1.00
-co2_per_kwh_capture,0.910,kg CO2/kWh,"CO2 captured per kWh net electricity, NETL SubPC plant with capture (US-IL); sets electricity co-product per kg CO2 supplied","user-specified NETL ratio",,,
-ta_dose,0.020,kg TA/kg RCF,"Tannic acid dosed to soaking water: 6.6 g TA per 330 g RCF","v19 SI S1.2",,,
-ta_retained,0.3333,-,"Fraction of TA leaving with settled slurry (= fraction of process water retained, 550/1650 g); assumes TA remains dissolved, not adsorbed","v19 SI S1.2 mass balance",uniform,0.33,1.00
-ls,1.67,kg water/kg RCF,"Liquid-to-solid ratio for process-water accounting (v19 text; user: keep, to be updated; SI_1 protocol implies 5.0)","v19 Sec. 2.1",,,
-water_retained_frac,0.3333,-,"Fraction of process water leaving with settled slurry; remainder recycled (not charged)","v19 SI S1.2",,,
-grind_e,0.0337,kWh/kg RCF,"Fine grinding of RCF to <75 um; mean of 46 cement ball-mill specifications","v19 SI Table S6",uniform,0.027,0.043
-crush_diesel,1.116e-4,kg diesel/kg concrete,"Mobile jaw crusher diesel; mean of 7 units (2.19 gal/h at 86 t/h)","v19 SI Table S5",,,
-rcf_yield,0.20,kg RCF/kg concrete,"Fines yield from crushing demolition concrete","v19 SI Table S5 note 3",,,
-crush_alloc,1.0,-,"Share of crushing burden allocated to RCF (1.0 = all, conservative; 0.2 = mass allocation)","v19; sensitivity 0.2",uniform,0.2,1.0
-stir_e,0.004964,kWh/kg RCF,"Agitation: 0.75 kW for 2 h per 433 kg slurry batch (65.5 kg RCF)","v19 SI Table S8",,,
-blower_dp,30000,Pa,"Column gas-side pressure drop (~3 m liquid head)","engineering estimate",,,
-blower_eta,0.6,-,"Blower efficiency","engineering estimate",,,
-dry_MJ_per_kg_water,4.3,MJ/kg water,"Electric spray dryer specific energy (240 kW e-heater, 200 kg/h)","v19 SI Table S10",uniform,3.0,5.0
-cake_moisture,0.30,kg water/kg wet cake,"Residual moisture of dewatered slurry before drying","v19 Sec. 2.5",,,
-mix_e,0.0005,kWh/kg mortar,"Mortar mixer electricity (0.56 kW, 10 min per 183.8 kg batch)","v19 SI Table S9",,,
-fa_handling_e,0.005,kWh/kg FA,"Fly ash classification/handling electricity (ash itself burden-free under cut-off)","assumption (approved FLAG-12)",,,
-il_clinker,0.86,kg/kg cement,"Type IL clinker fraction (PCA 2021 EPD: average 10.8% limestone)","PCA 2021 PLC EPD; ASTM C595",,,
-il_limestone,0.11,kg/kg cement,"Type IL interground limestone","PCA 2021 PLC EPD",,,
-il_gypsum,0.03,kg/kg cement,"Gypsum in Type IL","ASTM C595 typical",,,
-il_grind_e,0.037,kWh/kg cement,"Finish grinding for IL (1.1 x ball-mill mean)","v19 Table S6 x 1.1",,,
-lc3_clinker,0.50,kg/kg cement,"LC3-50","v19 Table S11",,,
-lc3_clay,0.30,kg/kg cement,"LC3-50 calcined clay","v19 Table S11",,,
-lc3_limestone,0.15,kg/kg cement,"LC3-50 limestone","v19 Table S11",,,
-lc3_gypsum,0.05,kg/kg cement,"LC3-50 gypsum","v19 Table S11",,,
-lc3_grind_e,0.0337,kWh/kg cement,"LC3 grinding","v19 Table S11",,,
-ta_solution_fraction,0.267,kg TA/kg TA solution,"TA content of extraction product (v19 basis: 1 kg final TA solution)","v19 SI S1.3 & Table S11",,,
-ta_methanol_makeup,0.07,kg/kg TA solution,"Net methanol make-up (1.00 in; 0.66 + 0.27 recovered and recycled)","v19 Table S11 (approved FLAG-6)",,,
-ta_bark,0.67,kg/kg TA solution,"Hardwood bark chips feedstock","v19 Table S11",,,
-ta_water,2.33,kg/kg TA solution,"Process water for methanol solution","v19 Table S11",,,
-ta_elec,0.26,kWh/kg TA solution,"Electricity: 0.09 + 0.03 + 0.05 + 0.09","v19 Table S11",,,
-ta_methanol_emission,0.04,kg/kg TA solution,"Methanol emitted to water (reported as flow; no factor)","v19 Table S11",,,
+name,process,value,unit,description,source,mc_dist,mc_low,mc_high
+binder,Mortar mix design,0.231579,kg/kg mortar,Total binder (cement + SCM) per kg of mortar; mix design binder:sand:water = 1:2.818:0.50 (ASTM C109-type mortar),"laboratory mortar mix design, this work (Text S1)",,,
+sand,Mortar mix design,0.652632,kg/kg mortar,Sand per kg mortar,"laboratory mortar mix design, this work (Text S1)",,,
+water,Mortar mix design,0.115789,kg/kg mortar,Mixing water per kg mortar (w/b = 0.50),"laboratory mortar mix design, this work (Text S1)",,,
+repl,Mortar mix design,0.3,kg SCM/kg binder,Mass fraction of binder replaced by SCM (RCF on uncarbonated basis; fly ash). Strength verified for lab-paste RCF only.,"laboratory mortar mix, this work (Fig. 2b)",uniform_sa,0.15,0.45
+repl_fa,Mortar mix design,0.3,kg SCM/kg binder,Fly-ash replacement level in the reference mortars (held constant when the BioCarb replacement level is varied),industry-typical Class F replacement,,,
+cao_field,Feedstock (RCF),0.3,kg CaO/kg RCF,CaO content of field recycled concrete fines. Literature range 11-46 wt%: Korean survey of 20 recycling plants 15-30% (road-aggregate plants 28-31%); RWCP China 11.4%; Egypt RCP 20.5%; paste-rich fines 45-46%,Lee et al. 2025 Recycling 10:17; Sci Rep 2024 PMC11547463; J Eng Appl Sci 2026 s44147-026-00899; Sci Rep 2026 s41598-026-46343; Sustainability 2025 17:1506,triangular,0.15,0.45
+cao_lab,Feedstock (RCF),0.5783,kg CaO/kg RCF,CaO of laboratory hydrated OPC paste used in experiments (XRF),"XRF, this work (Table S1)",,,
+CE,Soaking and carbonation,0.8,-,Total carbonate fraction of CaO after 60 min with TA as measured by TGA (Fig. 2a); includes pre-existing carbonate ce0. Net (new) conversion = CE - ce0 (Eq. S1),"TGA, this work (Fig. 2a)",uniform,0.7,0.85
+ce0_lab,Feedstock (RCF),0.165,-,"Pre-existing carbonate fraction of total CaO in the uncarbonated laboratory paste (CE at t = 0 in Fig. 2a, 16-17 %)","TGA, this work (Fig. 2a)",,,
+ce0_field,Feedstock (RCF),0.165,-,"Pre-existing carbonate fraction of total CaO in field RCF; assumed equal to the lab paste in the base case. Demolition fines are often more carbonated (weathering), so the range extends to 0.40",assumption; range from literature on aged concrete fines,uniform,0.1,0.4
+co2_uptake_lab_measured,Soaking and carbonation,0.365,kg CO2/kg RCF,"Measured total carbonate CO2 in the carbonated laboratory product (TGA, = CE x theoretical); reported unchanged as raw data. New CO2 fixed during carbonation = (CE - ce0_lab) x 0.454 = 0.288 kg/kg","TGA, this work",,,
+util,Soaking and carbonation,1.0,-,CO2 utilization in carbonation column; (1-util) vented as direct emission,user decision; sensitivity 0.8-1.0,uniform,0.8,1.0
+co2_per_kwh_capture,CO2 supply (capture plant),0.91,kg CO2/kWh,"CO2 captured per kWh net electricity, NETL SubPC plant with capture (US-IL); sets electricity co-product per kg CO2 supplied",user-specified NETL ratio,,,
+ta_dose,Soaking and carbonation,0.02,kg TA/kg RCF,Tannic acid dosed to soaking water: 6.6 g TA per 330 g RCF,"laboratory protocol, this work (Text S1)",,,
+ta_retained,Soaking and carbonation,0.3333,-,"Fraction of TA leaving with settled slurry (= fraction of process water retained, 550/1650 g); assumes TA remains dissolved, not adsorbed","laboratory slurry mass balance, this work (Text S1)",uniform,0.33,1.0
+ls,Soaking and carbonation,1.67,kg water/kg RCF,"Liquid-to-solid ratio for process-water accounting: water retained in the settled slurry per kg RCF (550/330 g). The soaking step itself uses 5.0 kg water per kg RCF, two thirds of which is recycled (Text S1); the effect on tank sizing is small","laboratory protocol, this work (Text S1)",,,
+water_retained_frac,Soaking and carbonation,0.3333,-,Fraction of process water leaving with settled slurry; remainder recycled (not charged),"laboratory slurry mass balance, this work (Text S1)",,,
+grind_e,RCF preparation,0.0337,kWh/kg RCF,Fine grinding of RCF to <75 um; mean of 46 cement ball-mill specifications,"mean of 46 ball-mill specifications (Hengxing and AGICO vendor data), Table S8",uniform,0.027,0.043
+crush_diesel,RCF preparation,0.0001116,kg diesel/kg concrete,Mobile jaw crusher diesel; mean of 7 units (2.19 gal/h at 86 t/h),"mean of seven mobile jaw crushers (vendor specifications), Table S7",,,
+rcf_yield,Feedstock (RCF),0.2,kg RCF/kg concrete,Fines yield from crushing demolition concrete,assumption: fines fraction of crushed demolition concrete (Nedeljkovic et al. 2021),,,
+crush_alloc,RCF preparation,1.0,-,"Share of crushing burden allocated to RCF (1.0 = all, conservative; 0.2 = mass allocation)",assumption (conservative); mass allocation 0.2 in sensitivity,uniform,0.2,1.0
+stir_e,Soaking and carbonation,0.004964,kWh/kg RCF,Agitation: 0.75 kW for 2 h per 433 kg slurry batch (65.5 kg RCF),"agitator motor rating, vendor specification (0.75 kW)",,,
+blower_dp,Soaking and carbonation,30000.0,Pa,Column gas-side pressure drop (~3 m liquid head),engineering estimate,,,
+blower_eta,Soaking and carbonation,0.6,-,Blower efficiency,engineering estimate,,,
+dry_MJ_per_kg_water,Dewatering and drying (scenario A),4.3,MJ/kg water,"Electric spray dryer specific energy (240 kW e-heater, 200 kg/h)","spray dryer vendor specification (COL-INT TECH ISD-I200, 240 kW, 200 kg/h)",uniform,3.0,5.0
+cake_moisture,Dewatering and drying (scenario A),0.3,kg water/kg wet cake,Residual moisture of dewatered slurry before drying,assumption: typical plate-and-frame filter cake,,,
+mix_e,Mortar mix design,0.0005,kWh/kg mortar,"Mortar mixer electricity (0.56 kW, 10 min per 183.8 kg batch)",portable mortar mixer vendor specification (0.56 kW),,,
+fa_handling_e,Fly ash supply,0.005,kWh/kg FA,Fly ash classification/handling electricity (ash itself burden-free under cut-off),assumption (approved FLAG-12),,,
+il_clinker,Cement (Type IL),0.86,kg/kg cement,Type IL clinker fraction (PCA 2021 EPD: average 10.8% limestone),PCA 2021 PLC EPD; ASTM C595,,,
+il_limestone,Cement (Type IL),0.11,kg/kg cement,Type IL interground limestone,PCA 2021 PLC EPD,,,
+il_gypsum,Cement (Type IL),0.03,kg/kg cement,Gypsum in Type IL,ASTM C595 typical,,,
+il_grind_e,Cement (Type IL),0.037,kWh/kg cement,Finish grinding for IL (1.1 x ball-mill mean),1.1 x ball-mill mean (Table S8),,,
+lc3_clinker,Cement (LC3-50),0.5,kg/kg cement,LC3-50,Scrivener et al. 2018 (ref. 9),,,
+lc3_clay,Cement (LC3-50),0.3,kg/kg cement,LC3-50 calcined clay,Scrivener et al. 2018 (ref. 9),,,
+lc3_limestone,Cement (LC3-50),0.15,kg/kg cement,LC3-50 limestone,Scrivener et al. 2018 (ref. 9),,,
+lc3_gypsum,Cement (LC3-50),0.05,kg/kg cement,LC3-50 gypsum,Scrivener et al. 2018 (ref. 9),,,
+lc3_grind_e,Cement (LC3-50),0.0337,kWh/kg cement,LC3 grinding,ball-mill mean (Table S8),,,
+ta_solution_fraction,Tannic acid production (proxy),0.267,kg TA/kg TA solution,TA content of the extraction product (basis: 1 kg final TA solution),"Aspen Plus model of bark-tannin extraction, this work (Table S6)",,,
+ta_methanol_makeup,Tannic acid production (proxy),0.07,kg/kg TA solution,Net methanol make-up (1.00 in; 0.66 + 0.27 recovered and recycled),"Aspen Plus model, this work (Table S6)",,,
+ta_bark,Tannic acid production (proxy),0.67,kg/kg TA solution,Hardwood bark chips feedstock,"Aspen Plus model, this work (Table S6)",,,
+ta_water,Tannic acid production (proxy),2.33,kg/kg TA solution,Process water for methanol solution,"Aspen Plus model, this work (Table S6)",,,
+ta_elec,Tannic acid production (proxy),0.26,kWh/kg TA solution,Electricity: 0.09 + 0.03 + 0.05 + 0.09,"Aspen Plus model, this work (Table S6)",,,
+ta_methanol_emission,Tannic acid production (proxy),0.04,kg/kg TA solution,Methanol emitted to water (reported as flow; no factor),"Aspen Plus model, this work (Table S6)",,,

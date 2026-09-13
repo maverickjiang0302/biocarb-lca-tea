@@ -1,12 +1,12 @@
 item,scenario_scope,method,size_basis,a,b,n,S_min,S_max,base_cost_usd,base_size,base_year,scale_exp,source,note
-fine ball mill,BC_A;BC_B,vendor_scaled,t/h RCF,,,,,,825000,20,2020,0.6,v19 TEA equipment list (Hengxing quote),scaled down ~1 order of magnitude (20 -> 1.2-1.9 t/h); a 1.4 t/h vendor unit exists (Table S6)
-soaking/carbonation tanks (cone roof),BC_A;BC_B,towler,m3 volume,5800,1600,0.7,10,4000,,,2010,,"Towler & Sinnott 2013 Table 7.2 - tank, cone roof","two tanks (soaking, carbonation), each 1 h residence; VERIFY"
-agitators (propeller),BC_A;BC_B,towler,kW driver,17000,1130,1.05,5,75,,,2010,,"Towler & Sinnott 2013 Table 7.2 - agitator, propeller","0.2 kW/m3, min 5 kW, two units; VERIFY"
-settling tank (cone roof),BC_A;BC_B,towler,m3 volume,5800,1600,0.7,10,4000,,,2010,,"Towler & Sinnott 2013 Table 7.2 - tank, cone roof",VERIFY
-CO2 packed column (vertical CS vessel),BC_A;BC_B,towler,kg shell mass,11600,34,0.85,160,250000,,,2010,,"Towler & Sinnott 2013 Table 7.2 - pressure vessel, vertical, CS","shell from D, H=4 m, t=8 mm, +20% heads; VERIFY"
-column packing (plastic random),BC_A;BC_B,towler,m3 packing,0,2000,1.0,0.1,100,,,2010,,Towler & Sinnott 2013 Table 7.2 - packing (order of magnitude),VERIFY
-blower (centrifugal),BC_A;BC_B,towler,m3/h gas,4450,57,0.8,200,5000,,,2010,,Towler & Sinnott 2013 Table 7.2 - blower,VERIFY
-slurry pump (centrifugal),BC_A;BC_B,towler,L/s,8000,240,0.9,0.2,126,,,2010,,Towler & Sinnott 2013 Table 7.2 - single-stage centrifugal pump,VERIFY
-plate-and-frame filter press,BC_A,towler,m2 filter area,128000,89000,0.5,4,80,,,2010,,Towler & Sinnott 2013 Table 7.2 - plate and frame filter,VERIFY
-spray dryer,BC_A,vendor_scaled,kg/h water evaporated,,,,,,797500,200,2020,0.6,v19 TEA Table S10 (COL-INT TECH ISD-I200),scaled UP <10x
-belt conveyor,BC_A;BC_B,towler,m length,41000,730,1.0,10,500,,,2010,,Towler & Sinnott 2013 Table 7.2 - belt conveyor 0.5 m wide,VERIFY
+fine ball mill,BC_A;BC_B,vendor_scaled,t/h RCF,,,,,,825000.0,20.0,2020,0.6,"vendor quote (Hengxing), 2020",scaled down ~1 order of magnitude (20 -> 1.2-1.9 t/h); a 1.4 t/h vendor unit exists (Table S6)
+soaking/carbonation tanks (cone roof),BC_A;BC_B,towler,m3 volume,5800.0,1600.0,0.7,10.0,4000.0,,,2010,,"Towler & Sinnott 2013 Table 7.2 - tank, cone roof","two tanks (soaking, carbonation), each 1 h residence; VERIFY"
+agitators (propeller),BC_A;BC_B,towler,kW driver,17000.0,1130.0,1.05,5.0,75.0,,,2010,,"Towler & Sinnott 2013 Table 7.2 - agitator, propeller","0.2 kW/m3, min 5 kW, two units; VERIFY"
+settling tank (cone roof),BC_A;BC_B,towler,m3 volume,5800.0,1600.0,0.7,10.0,4000.0,,,2010,,"Towler & Sinnott 2013 Table 7.2 - tank, cone roof",VERIFY
+CO2 packed column (vertical CS vessel),BC_A;BC_B,towler,kg shell mass,11600.0,34.0,0.85,160.0,250000.0,,,2010,,"Towler & Sinnott 2013 Table 7.2 - pressure vessel, vertical, CS","shell from D, H=4 m, t=8 mm, +20% heads; VERIFY"
+column packing (plastic random),BC_A;BC_B,towler,m3 packing,0.0,2000.0,1.0,0.1,100.0,,,2010,,Towler & Sinnott 2013 Table 7.2 - packing (order of magnitude),VERIFY
+blower (centrifugal),BC_A;BC_B,towler,m3/h gas,4450.0,57.0,0.8,200.0,5000.0,,,2010,,Towler & Sinnott 2013 Table 7.2 - blower,VERIFY
+slurry pump (centrifugal),BC_A;BC_B,towler,L/s,8000.0,240.0,0.9,0.2,126.0,,,2010,,Towler & Sinnott 2013 Table 7.2 - single-stage centrifugal pump,VERIFY
+plate-and-frame filter press,BC_A,towler,m2 filter area,128000.0,89000.0,0.5,4.0,80.0,,,2010,,Towler & Sinnott 2013 Table 7.2 - plate and frame filter,VERIFY
+spray dryer,BC_A,vendor_scaled,kg/h water evaporated,,,,,,797500.0,200.0,2020,0.6,"vendor quote (COL-INT TECH ISD-I200), 2020",scaled UP <10x
+belt conveyor,BC_A;BC_B,towler,m length,41000.0,730.0,1.0,10.0,500.0,,,2010,,Towler & Sinnott 2013 Table 7.2 - belt conveyor 0.5 m wide,VERIFY

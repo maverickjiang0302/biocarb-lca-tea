@@ -38,3 +38,10 @@ v1.2.0 (2026-09-12) - manuscript v21
 - Fig. 1 simplified to process names, equipment and technologies; Fig. 3 net-total markers removed; Figs 3 and 5 use short binder labels; tornado parameters labelled in words; all figures larger fonts (Arial, 11 pt base, 300 dpi); graphic abstract added (figures/Fig0_graphic_abstract.png); Fig. 2 file renamed Fig2_lab_data.png.
 - Wording: deployment 'scenarios' A/B instead of 'scales'; all references to the superseded v19 draft removed (build_si.house_style). Table 1 regenerated in the authors' layout with numbered references (data/literature_uptake.csv: technology, condition, ..., ref_no columns); new references 51-53 (Siriruang 2016, Pei 2018, Chen 2016), 49 SDSN 2022, 50 IEA 2019.
 - Manuscript v21 built by src/build_manuscript_v21.py from the authors' edited v20 Word file (manuscript/manuscript_v20_edited.md) and results/*.csv; Word export with a Times New Roman reference document (manuscript/reference_tnr.docx). Extra sweeps: price_fa, price_lc3_factor, price_co2.
+
+
+v1.2.1 (2026-09-13) - SI revision
+- Flue-gas CO2 dataset and code vestige removed (data/impact_factor_map.csv, inventory.py); scenario wording throughout the SI.
+- SI: Text S6, Table S2 (laboratory data) and Figure S1 deleted; Tables S3-S19 renumbered S2-S18; parameter table gains a 'process' column; TEA equations cite the NREL DCF convention (Davis et al. 2014, new ref. 54).
+- Provenance columns in data/parameters.csv, tea_parameters.csv and equipment.csv now name the actual sources (laboratory data of this work, vendor specifications, Scrivener et al. 2018, Davis et al. 2014) instead of the superseded draft.
+- Manuscript cross-references to SI tables updated by src/build_manuscript_v21.py.

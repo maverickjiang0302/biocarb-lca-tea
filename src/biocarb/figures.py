@@ -293,4 +293,4 @@ def fig_si():
 
 def all_figures():
     FIG.mkdir(exist_ok=True)
-    fig_process_flow(); fig_gwp_stages(); fig_heatmap(); fig_msp(); fig_breakeven(); fig_uncertainty(); fig_mac(); fig_si(); fig_graphic_abstract()
+    fig_process_flow(); fig_gwp_stages(); fig_heatmap(); fig_msp(); fig_breakeven(); fig_uncertainty(); fig_mac(); fig_graphic_abstract()   # fig_si() kept for reference, not part of the SI

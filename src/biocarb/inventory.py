@@ -42,7 +42,6 @@ DS = dict(
     methanol="methanol GLO", bark="bark chips RoW",
     capture="SubPC capture (per kWh; delivers 0.910 kg CO2)",
     nocapture="SubPC no capture (per kWh)",
-    flue="SubPC no capture, flue gas (per kWh)",
     direct_pos="direct emission CO2 (+1)", direct_neg="CO2 mineralized (information; not credited)",
     none="no burden (cut-off)", flow="reported flow, no factor",
 )
@@ -153,8 +152,7 @@ def build_scenario(scenario: str, p: dict, E_cop: float | None = None) -> pd.Dat
         inv.add("TA production (proxy)", "electricity", sol * p["ta_elec"], "kWh", DS["grid"], "sol x 0.26")
         inv.add("TA production (proxy)", "methanol to water (flow only)", sol * p["ta_methanol_emission"], "kg", DS["flow"], "sol x 0.04")
         inv.add("soaking & carbonation", "electricity (agitation)", rcf * p["stir_e"], "kWh", DS["grid"], "rcf x 0.00496")
-        ds_co2 = DS["flue"] if scenario.endswith("flue") else DS["capture"]
-        inv.add("CO2 supply", "CO2 supplied, expressed as kWh of source plant", rcf * s / p["co2_per_kwh_capture"], "kWh", ds_co2,
+        inv.add("CO2 supply", "CO2 supplied, expressed as kWh of source plant", rcf * s / p["co2_per_kwh_capture"], "kWh", DS["capture"],
                 f"rcf x {s:.4f} kg CO2 / {p['co2_per_kwh_capture']} kg CO2/kWh (Eq. S2-S3)",
                 f"= {rcf*s:.5f} kg CO2 per kg mortar (pre-normalisation)")
         inv.add("soaking & carbonation", "electricity (column blower)", rcf * s * p["blower_dp"] * V_CO2 / p["blower_eta"] / 3.6e6,
