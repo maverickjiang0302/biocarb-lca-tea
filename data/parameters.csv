@@ -26,7 +26,7 @@ blower_eta,Soaking and carbonation,0.6,-,Blower efficiency,engineering estimate,
 dry_MJ_per_kg_water,Dewatering and drying (scenario A),4.3,MJ/kg water,"Electric spray dryer specific energy (240 kW e-heater, 200 kg/h)","spray dryer vendor specification (COL-INT TECH ISD-I200, 240 kW, 200 kg/h)",uniform,3.0,5.0
 cake_moisture,Dewatering and drying (scenario A),0.3,kg water/kg wet cake,Residual moisture of dewatered slurry before drying,assumption: typical plate-and-frame filter cake,,,
 mix_e,Mortar mix design,0.0005,kWh/kg mortar,"Mortar mixer electricity (0.56 kW, 10 min per 183.8 kg batch)",portable mortar mixer vendor specification (0.56 kW),,,
-fa_handling_e,Fly ash supply,0.005,kWh/kg FA,Fly ash classification/handling electricity (ash itself burden-free under cut-off),assumption (approved FLAG-12),,,
+fa_handling_e,Fly ash supply,0.005,kWh/kg FA,Fly ash classification/handling electricity (ash itself burden-free under cut-off),assumption,,,
 il_clinker,Cement (Type IL),0.86,kg/kg cement,Type IL clinker fraction (PCA 2021 EPD: average 10.8% limestone),PCA 2021 PLC EPD; ASTM C595,,,
 il_limestone,Cement (Type IL),0.11,kg/kg cement,Type IL interground limestone,PCA 2021 PLC EPD,,,
 il_gypsum,Cement (Type IL),0.03,kg/kg cement,Gypsum in Type IL,ASTM C595 typical,,,

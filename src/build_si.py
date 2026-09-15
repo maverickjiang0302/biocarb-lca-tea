@@ -98,20 +98,20 @@ All cements are built from the same background datasets (Table S15): Type IL = 0
 
 # Text S4. TEA equations
 
-The discounted-cash-flow structure (equity share, loan terms, MACRS depreciation, working capital, start-up year) follows the NREL convention of Davis et al. (2014), reference 54 of the main text; equipment costing follows Towler and Sinnott (2013), reference 37.
+The discounted-cash-flow structure (equity share, loan terms, MACRS depreciation, working capital, start-up year) follows the methodologies described in Davis et al. (2014), reference 54 of the main text; equipment costing follows Towler and Sinnott (2013), reference 37.
 
 | Eq. | Expression |
 |---|---|
 | S9 | Purchased cost, vendor basis: C = C~base~ (S/S~base~)^n^ · CEPCI~2024~/CEPCI~quote~ |
-| S10 | Purchased cost, correlation: C = (a + b S^n^) · CEPCI~2024~/CEPCI~2010~ (Towler & Sinnott 2013, Table 7.2; CEPCI~2010~ = 532.9, CEPCI~2024~ ≈ 800) |
+| S10 | Purchased cost, correlation: C = (a + b S^n^) · CEPCI~2024~/CEPCI~2010~ (Towler & Sinnott 2013, Table 7.2; CEPCI~2010~ = 550.8, CEPCI~2024~ = 796.2) |
 | S11 | ISBL = 1.5 ΣC ; OSBL = 0.13 ISBL ; TDC = ISBL + OSBL + common plant ; FCI = 1.20 TDC ; TCI = 1.05 FCI |
 | S12 | Loan = 0.60 TCI at 8 %% over 10 yr; MACRS 7-yr depreciation of FCI |
 | S13 | Variable cost = Σ(flow × price); fixed = labor + 3 %% ISBL maintenance + 0.7 %% FCI insurance/tax |
-| S14 | RCF rate m~RCF~ [t h^−1^] = m~RCF,kg~ × annual mortar / 4000 h |
+| S14 | RCF rate m~RCF~ [t h^−1^] = m~RCF,kg~ × annual mortar / (2 shifts × 8 h d^−1^ × 250 d yr^−1^ = 4000 h) |
 | S15 | Tank volume V = m~slurry~ · t~res~ /(1100 kg m^−3^ × 0.8), t~res~ = 1 h (soaking, carbonation) and 2 h (settling) |
 | S16 | Agitator power 0.2 kW m^−3^ (min 5 kW), one per tank |
 | S17 | Gas flow Q = s · m~RCF~ · 0.5535 m^3^ kg^−1^; column diameter from u~g~ = 0.05 m s^−1^ (min 0.3 m), H = 4 m, 8 mm CS shell + 20 %% for heads |
-| S18 | Filter area A = solids / 25 kg m^−2^ h^−1^, in units ≤ 80 m^2^ (scale A only) |
+| S18 | Filter-press capacity V = m~cake~ · t~cycle~ / ρ~cake~, with m~cake~ the wet cake at 30 %% moisture (kg h^−1^), t~cycle~ = 1 h and ρ~cake~ = 2000 kg m^−3^; split into units within the 0.4–1.4 m^3^ range of the cost correlation (scale A only) |
 | S19 | Dryer duty = water evaporated (kg h^−1^) (scale A only) |
 | S20 | Conveyor 20 m; pump from slurry volumetric flow |
 | S21 | MSP: Σ~t~ CF~t~/(1+IRR)^t^ = 0 with CF~0~ = −equity·TCI; CF~t~ = revenue − variable − fixed − loan payment − tax; tax = 21 %% × max(0, revenue − variable − fixed − depreciation − interest); year-1 production 90 %%; working capital recovered in year 20 |
@@ -140,11 +140,11 @@ Mortar-cube strength cannot be extrapolated to concrete directly. The cementing-
     s.append("\n# Table S8. Ball-mill specific energy (v19 Table S5): 46 units (Hengxing, AGICO), 1.4–87 t h^−1^, mean 0.0337 kWh kg^−1^ (range 0.027–0.043). Individual unit specifications are available from the authors.\n")
     s.append("\n# Table S9. Validation of component-built cements (GWP)\n"); s.append(md(val))
     s.append("\n# Table S10. TEA parameters (data/tea_parameters.csv)\n"); s.append(md(TP))
-    s.append("\n# Table S11. Equipment sizing and purchased costs (2024 USD; results/tea_equipment.csv).\n")
+    s.append("\n# Table S11. Equipment sizing and purchased costs (2024 USD; results/tea_equipment.csv; based on Towler & Sinnott (2013) Table 7.2 when feasible).\n")
     s.append(md(eq[["scenario", "item", "size", "size_unit", "n_units", "purchased_cost_2024", "basis"]], floatfmt="{:.3g}"))
     s.append("\n# Table S12. LCA results per functional unit (1 kg mortar + %.4f kWh electricity)\n" % der.loc[0, "value"]); s.append(md(tot, floatfmt="{:.4g}", index=True))
     s.append("\nGWP by contribution (kg CO~2~e kg^−1^):\n"); s.append(md(stage, floatfmt="{:.4f}", index=True))
-    s.append("\n# Table S13. TEA results\n"); s.append(md(tea.rename(columns={"scale": "scenario"}), floatfmt="{:.4g}"))
+    s.append("\n# Table S13. TEA results\n"); s.append(md(tea.drop(columns=["scale"]), floatfmt="{:.4g}"))
     s.append("\nMSP contributions (¢ kg^−1^):\n"); s.append(md(con.pivot_table(index="item", columns="scenario", values="cents_per_kg", aggfunc="sum"), floatfmt="{:.3f}", index=True))
     s.append("\nMarginal abatement cost (USD t^−1^ CO~2~e vs Type IL, same scale):\n"); s.append(md(mac, floatfmt="{:.0f}", index=True))
     s.append("\n# Table S14. Monte Carlo summary (n = 1000) and probabilities\n"); s.append(md(mc, floatfmt="{:.4g}")); s.append("\n"); s.append(md(probs, floatfmt="{:.3f}"))
@@ -154,9 +154,9 @@ Mortar-cube strength cannot be extrapolated to concrete directly. The cementing-
     s.append(md(tor[["parameter", "bound", "value", "dGWP", "dGWP_vs_FA", "dMSP", "dMSP_vs_IL"]], floatfmt="{:.4f}"))
     s.append("\n# Derived quantities\n"); s.append(md(der, floatfmt="{:.5g}"))
     litn = pd.read_csv(R / "literature_uptake_normalized.csv"); abat = pd.read_csv(D / "abatement_cost_literature.csv")
-    s.append("\n# Table S17. Literature CO~2~ uptake (Table 1) normalized to apparent carbonation efficiency (Eq. S24). Where the cited paper does not report the CaO content, a typical value for the feedstock class is used (flagged in the cao_basis column). Reference numbers refer to the main-text list.\n")
+    s.append("\n# Table S17. Literature CO~2~ uptake (Table 1) normalized to apparent carbonation efficiency (Eq. S24). Reference numbers refer to the main-text list.\n")
     s.append(md(litn[["ref_no", "reference", "feedstock", "feedstock_type", "cao_wt_pct", "cao_basis", "co2_uptake_kg_per_kg", "uptake_basis", "process", "theoretical_uptake_kg_per_kg", "apparent_CE_pct"]], floatfmt="{:.3g}"))
-    s.append("\n# Table S18. Published abatement costs used in Fig. 8 and for context, converted to 2024 USD per t CO~2~ avoided (negative = net saving). The `perspective` column states who bears the cost: concrete producer buying cement and SCMs at market prices (comparable with this study), cement producer at clinker production cost (context only), or cement buyer under full pass-through of kiln CCS. `fig8` marks the rows drawn in Fig. 8. Values read from published charts or converted with an assumed cost year are flagged in the verify column.\n"); s.append(md(abat, floatfmt="{:.3g}"))
+    s.append("\n# Table S18. Published abatement costs used in Fig. 8 and for context, converted to 2024 USD per t CO~2~ avoided (negative = net saving). The `perspective` column states who bears the cost: concrete producer buying cement and SCMs at market prices (comparable with this study), cement producer at clinker production cost (context only), or cement buyer under full pass-through of kiln CCS. `fig8` marks the rows drawn in Fig. 8.\n"); s.append(md(abat, floatfmt="{:.3g}"))
     mbl = pd.read_csv(R / "mac_by_baseline.csv")
     s.append("\nMarginal abatement cost against each same-scale reference mortar (USD t^−1^ CO~2~e; blank where the scenario does not abate relative to that reference):\n"); s.append(md(mbl, floatfmt="{:.4g}"))
     # Table 1 of the main text (generated here so it always matches data/literature_uptake.csv; references numbered)

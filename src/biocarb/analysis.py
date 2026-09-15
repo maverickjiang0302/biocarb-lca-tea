@@ -11,6 +11,28 @@ from . import inventory as I, lca as L, tea as T
 from .params import mc_table
 
 RNG = np.random.default_rng(20260910)
+K_CAO = 44.01 / 56.08   # kg CO2 per kg CaO
+
+
+def normalize_literature_uptake(lit: pd.DataFrame) -> pd.DataFrame:
+    """Eq. S24: apparent carbonation efficiency = uptake / theoretical uptake, theoretical = CaO x 44.01/56.08.
+    cao_wt_pct may be a number, a range 'lo-hi' (both bounds are reported) or blank (not reported -> NA);
+    theoretical_uptake_override (kg/kg) replaces the CaO-based value when the source reports a different basis.
+    String columns carry what is printed (Table S17); *_lo/_hi hold the numeric bounds used for statistics."""
+    th, ce, lo, hi = [], [], [], []
+    for _, r in lit.iterrows():
+        u = float(r["co2_uptake_kg_per_kg"]); cao = str(r.get("cao_wt_pct", "")).strip(); ov = str(r.get("theoretical_uptake_override", "")).strip()
+        if ov not in ("", "nan"):
+            t = float(ov); th.append(f"{t:.3g}"); ce.append(f"{100 * u / t:.3g}"); lo.append(100 * u / t); hi.append(100 * u / t)
+        elif cao in ("", "nan"):
+            th.append("NA"); ce.append("NA"); lo.append(np.nan); hi.append(np.nan)
+        elif "-" in cao:
+            a, b = (float(x) for x in cao.split("-")); ta, tb = a / 100 * K_CAO, b / 100 * K_CAO
+            th.append(f"{ta:.3g}-{tb:.3g}"); ce.append(f"{100 * u / tb:.3g}-{100 * u / ta:.3g}"); lo.append(100 * u / tb); hi.append(100 * u / ta)
+        else:
+            t = float(cao) / 100 * K_CAO; th.append(f"{t:.3g}"); ce.append(f"{100 * u / t:.3g}"); lo.append(100 * u / t); hi.append(100 * u / t)
+    out = lit.copy(); out["theoretical_uptake_kg_per_kg"] = th; out["apparent_CE_pct"] = ce; out["apparent_CE_pct_lo"] = lo; out["apparent_CE_pct_hi"] = hi
+    return out
 
 
 def evaluate(p: dict, tp: dict, F: pd.DataFrame, scenarios=None, tea=True) -> pd.DataFrame:

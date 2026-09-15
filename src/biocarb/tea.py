@@ -31,7 +31,7 @@ Sizing of the BioCarb unit (per plant, Eq. S14-S20)
   agitators      0.2 kW/m3 (min 5 kW), one per tank
   gas flow       Q_gas  = CO2 supplied [kg/h] * 0.5535 m3/kg                        [m3/h]
   column         D from u_g = 0.05 m/s; H = 3 m packed + 1 m; shell 8 mm CS
-  filter press   A = dry solids [kg/h] / 25 kg/(m2 h); split into units of <= 80 m2
+  filter press   V = wet cake [kg/h] x 1 h cycle / 2000 kg/m3 = cake volume per cycle [m3]; split into units of <= 1.4 m3 (Towler capacity range)
   spray dryer    water evaporated [kg/h]
 Scale A (dry-mix plant) includes filter press and dryer; scale B (ready-mix, slurry) does not.
 """
@@ -43,6 +43,8 @@ from scipy.optimize import brentq
 from .params import load_equipment
 from . import inventory as I
 
+RHO_CAKE = 2000.0      # wet filter-cake bulk density, kg/m3 (dense mineral cake at 30 % moisture)
+FILTER_CYCLE_H = 1.0   # filter-press cycle time, h
 RHO_STEEL = 7850.0
 
 
@@ -103,8 +105,9 @@ def size_biocarb_unit(scn: str, inv_s: pd.DataFrame, p: dict, tp: dict) -> pd.Da
         elif item.startswith("slurry pump"):
             S, unit = max(slurry_kgh / 1100 * 1000 / 3600, 0.2), "L/s"
         elif item.startswith("plate-and-frame"):
-            A = m_rcf * (1 + I.co2_uptake(p)) / 25.0                     # 25 kg dry solids/(m2 h)
-            n_units = max(1, math.ceil(A / 80.0)); S, unit = max(A / n_units, 4.0), f"m2 each (x{n_units})"
+            m_cake = m_rcf * (1 + I.co2_uptake(p)) / (1 - p["cake_moisture"])   # wet cake, kg/h
+            V = m_cake * FILTER_CYCLE_H / RHO_CAKE                               # cake volume per press cycle, m3 (Towler capacity basis)
+            n_units = max(1, math.ceil(V / r["S_max"])); S, unit = max(V / n_units, r["S_min"]), f"m3 each (x{n_units})"
         elif item.startswith("spray dryer"):
             m_carb = m_rcf * (1 + I.co2_uptake(p))
             S, unit = m_carb * p["cake_moisture"] / (1 - p["cake_moisture"]), "kg water/h"
@@ -114,9 +117,11 @@ def size_biocarb_unit(scn: str, inv_s: pd.DataFrame, p: dict, tp: dict) -> pd.Da
             continue
         if r["method"] == "towler":
             cost = _towler(r["a"], r["b"], r["n"], S, tp)
-            note = f"Towler (a={r['a']},b={r['b']},n={r['n']}); valid {r['S_min']}-{r['S_max']}"
-            if not (r["S_min"] <= S <= r["S_max"]):
-                note += " | OUTSIDE RANGE (floor/ceiling applied)"
+            note = f"Towler (a={r['a']},b={r['b']},n={r['n']})"
+            if pd.notna(r["S_min"]) and pd.notna(r["S_max"]):
+                note += f"; valid {r['S_min']}-{r['S_max']}"
+                if not (r["S_min"] <= S <= r["S_max"]):
+                    note += " | OUTSIDE RANGE (floor/ceiling applied)"
         else:
             cost = _vendor(r["base_cost_usd"], r["base_size"], r["base_year"], r["scale_exp"], S, tp)
             note = f"vendor {r['base_cost_usd']:.0f} USD@{r['base_size']} ({int(r['base_year'])}), exp {r['scale_exp']}, size ratio {S/r['base_size']:.2f}"

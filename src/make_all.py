@@ -69,9 +69,8 @@ def main(n_mc: int):
     summ, probs = A.mc_summary(mc); summ.to_csv(RES / "montecarlo_summary.csv", index=False); probs.to_csv(RES / "montecarlo_probabilities.csv")
 
     # 6b. literature CO2-uptake normalisation to carbonation efficiency (Eq. S24: CE_app = u / (CaO x 44.01/56.08))
-    lit = pd.read_csv(ROOT / "data" / "literature_uptake.csv")
-    lit["theoretical_uptake_kg_per_kg"] = lit["cao_wt_pct"] / 100 * 44.01 / 56.08
-    lit["apparent_CE_pct"] = 100 * lit["co2_uptake_kg_per_kg"] / lit["theoretical_uptake_kg_per_kg"]
+    lit = pd.read_csv(ROOT / "data" / "literature_uptake.csv", dtype={"cao_wt_pct": str, "theoretical_uptake_override": str})
+    lit = A.normalize_literature_uptake(lit)
     lit.to_csv(RES / "literature_uptake_normalized.csv", index=False)
 
     # 7. figures

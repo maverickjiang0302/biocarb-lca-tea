@@ -103,7 +103,7 @@ def fig_breakeven():
     lower than in Fig. 3 / Table S13 by E x 0.942 kg CO2e (0.011 at the base case).
     MSP: % of the same-scenario Type IL mortar; one fly-ash reference line is drawn, scenario B (87.7 %; scenario A
     would be 86.5 %), so that both rows carry the same IL and FA baselines. The step
-    in the dry-mix curve between 0.25 and 0.30 replacement is the second filter-press unit (filter area > 80 m2
+    in the dry-mix curve between 0.25 and 0.30 replacement is the second filter-press unit (cake volume > 1.4 m3
     per unit, tea.size_biocarb_unit); it is explained in the caption, not annotated."""
     sw = pd.read_csv(RES / "sweeps.csv")
     gw = [("repl", "BioCarb replacement (kg RCF / kg binder)"), ("cao_field", "CaO content of field RCF (kg/kg)"), ("util", "CO$_2$ utilization in column")]
@@ -171,7 +171,7 @@ def fig_mac():
     prices. Benchmarks on the same footing: concrete-producer values derived from SDSN (2022) and, as the supply-side alternative,
     the premium a cement buyer would pay per t avoided if kiln CO2 capture and storage were passed through (rows flagged in the
     `fig8` column of data/abatement_cost_literature.csv). Cement-producer values at clinker production cost are not comparable and
-    are listed in Table S19 only."""
+    are listed in Table S18 only."""
     mb = pd.read_csv(RES / "mac_by_baseline.csv").set_index(["scenario", "baseline"])["MAC_usd_per_tCO2e"]
     mc = pd.read_csv(RES / "montecarlo.csv"); lit = pd.read_csv(ROOT / "data" / "abatement_cost_literature.csv")
 
@@ -212,8 +212,8 @@ def fig_mac():
     for ysep in (n_c + 1.4 + 0.5, 0.7): ax.axhline(ysep, color="k", lw=0.5, ls=":")
     bb = dict(boxstyle="square,pad=0.15", fc="white", ec="none", alpha=1.0)
     ax.text(xlim[0] + 8, y_s[0] + 0.85, "This study: mortar producer, market prices (diamond = base case; bar = 5th-95th percentile of the Monte Carlo)", fontsize=9.5, fontweight="bold", va="center", bbox=bb, zorder=6)
-    ax.text(xlim[0] + 8, y_c[0] + 0.85, "Concrete producer, market prices (derived from SDSN 2022, Table S19)", fontsize=9.5, fontweight="bold", va="center", bbox=bb, zorder=6)
-    ax.text(xlim[0] + 8, y_b + 0.85, "Cement buyer's premium if kiln CO$_2$ capture and storage were passed through (Table S19)", fontsize=9.5, fontweight="bold", va="center", bbox=bb, zorder=6)
+    ax.text(xlim[0] + 8, y_c[0] + 0.85, "Concrete producer, market prices (derived from SDSN 2022, Table S18)", fontsize=9.5, fontweight="bold", va="center", bbox=bb, zorder=6)
+    ax.text(xlim[0] + 8, y_b + 0.85, "Cement buyer's premium if kiln CO$_2$ capture and storage were passed through (Table S18)", fontsize=9.5, fontweight="bold", va="center", bbox=bb, zorder=6)
     ax.set_yticks([yy for yy, _ in labels]); ax.set_yticklabels([lab for _, lab in labels], fontsize=10)
     ax.set_xlim(*xlim); ax.set_ylim(-0.8, y_s[0] + 1.3)
     ax.set_xlabel("Marginal abatement cost, USD (2024) per t CO$_2$e avoided   (negative = net saving)")

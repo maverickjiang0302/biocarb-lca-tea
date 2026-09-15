@@ -1,40 +1,40 @@
 name,value,unit,description,source,mc_dist,mc_low,mc_high
-cost_year,2024.0,-,Cost basis year,user decision (approved FLAG-14),,,
-cepci_2010,532.9,-,CEPCI Jan 2010 (Towler & Sinnott correlation basis),"Towler & Sinnott 2013, Table 7.2",,,
+cost_year,2024.0,-,Cost basis year,Most recent annual CEPCI available,,,
+cepci_2010,550.8,-,CEPCI 2010 annual,Chemical Engineering magazine,,,
 cepci_2020,596.2,-,CEPCI 2020 annual,Chemical Engineering magazine,,,
-cepci_2024,800.0,-,CEPCI 2024 annual (approx.; 2023 = 797.9),Chemical Engineering magazine,,,
-plantA_tpy,100000.0,t dry mortar/yr,"Scale A: dry-mix mortar plant, 25 t/h x 4000 h/yr. Automatic dry-mortar lines are >15 t/h; large plants 250-450 kt/yr",Wikipedia 'Dry mortar production line'; lyroad.com dry-mortar plant FAQ,,,
+cepci_2024,796.2,-,CEPCI 2024 annual,Chemical Engineering magazine,,,
+plantA_tpy,100000.0,t dry mortar/yr,"Scale A: dry-mix mortar plant, 25 t/h x 4000 h/yr. Automatic dry-mortar lines are >15 t/h; large plants 250-450 kt/yr",Tatale & Kulkarni. IJERT 2.8 (2013): 616-617.,,,
 plantB_tpy,60000.0,t wet mortar/yr,"Scale B: ready-mix plant producing ~28,000 m3/yr mortar; comparable to average US ready-mix plant output (~370 M yd3/yr over ~8,000 plants = ~35,000 m3/plant)",NRMCA Quality Benchmark Report 2025; NRMCA industry-average EPD 2019,,,
-op_hours,4000.0,h/yr,Operating hours (2 shifts x 250 d),assumption,,,
-irr,0.1,-,Discount rate / IRR for MSP,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-tax_rate,0.21,-,Federal income tax,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-equity,0.4,-,Equity share,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-loan_rate,0.08,-,Loan interest,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-loan_years,10.0,yr,Loan term,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-plant_life,20.0,yr,Plant life,approved FLAG-14,,,
-depr_years,7.0,yr,MACRS depreciation class,"NREL DCF convention, Davis et al. 2014 (ref. 54); IRS Pub. 946",,,
-working_capital_frac,0.05,of FCI,Working capital,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-startup_frac_var,0.75,-,Variable costs in start-up year,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-install_factor,1.5,-,Installation factor on purchased equipment (ISBL),"NREL DCF convention, Davis et al. 2014 (ref. 54); 1.5-1.7 by item",,,
-osbl_frac,0.13,of ISBL,Warehouse 4% + site development 9%,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-indirect_frac,0.2,of TDC,Prorateable 10% + field 10%,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-maintenance_frac,0.03,of ISBL,Maintenance,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-insurance_frac,0.007,of FCI,Property insurance & tax,"NREL DCF convention, Davis et al. 2014 (ref. 54)",,,
-labor_rate,28.0,USD/h,Production operator wage 2024 (BLS ~$21/h) + 35% burden,BLS OES 51-9199; approved FLAG-15,uniform,22.0,36.0
-labor_fte_common_A,4.0,FTE,Common dry-mix plant crew (all products),assumption,,,
-labor_fte_bc_A,2.0,FTE,Added for BioCarb unit at dry-mix plant (1 operator per shift),approved FLAG-15,uniform,1.0,4.0
-labor_fte_common_B,3.0,FTE,Common ready-mix batching crew attributable to mortar,assumption,,,
-labor_fte_bc_B,1.0,FTE,Added for BioCarb slurry unit at ready-mix plant,approved FLAG-15,uniform,0.5,2.0
-fte_hours,2000.0,h/FTE/yr,Hours per FTE,assumption,,,
+op_hours,4000.0,h/yr,Operating hours (2 shifts x 250 d),Table S2,,,
+irr,0.1,-,Discount rate / IRR for MSP,Davis et al. 2014 (ref. 54),,,
+tax_rate,0.21,-,Federal income tax,Davis et al. 2014 (ref. 54),,,
+equity,0.4,-,Equity share,Davis et al. 2014 (ref. 54),,,
+loan_rate,0.08,-,Loan interest,Davis et al. 2014 (ref. 54),,,
+loan_years,10.0,yr,Loan term,Davis et al. 2014 (ref. 54),,,
+plant_life,20.0,yr,Plant life,,,,
+depr_years,7.0,yr,MACRS depreciation class,Davis et al. 2014 (ref. 54),,,
+working_capital_frac,0.05,of FCI,Working capital,Davis et al. 2014 (ref. 54),,,
+startup_frac_var,0.75,-,Variable costs in start-up year,Davis et al. 2014 (ref. 54),,,
+install_factor,1.5,-,Installation factor on purchased equipment (ISBL),Davis et al. 2014 (ref. 54); Typically 1.5-1.7 by item,,,
+osbl_frac,0.13,of ISBL,Warehouse 4% + site development 9%,Davis et al. 2014 (ref. 54),,,
+indirect_frac,0.2,of TDC,Prorateable 10% + field 10%,Davis et al. 2014 (ref. 54),,,
+maintenance_frac,0.03,of ISBL,Maintenance,Davis et al. 2014 (ref. 54),,,
+insurance_frac,0.007,of FCI,Property insurance & tax,Davis et al. 2014 (ref. 54),,,
+labor_rate,28.0,USD/h,Production operator wage 2024 (BLS ~$21/h) + 35% burden,"U.S. Bureau of Labor Statistics (BLS), Occupational Employment and Wage Statistics (OEWS), Production Workers, All Other (SOC 51-9199), 2024",uniform,22.0,36.0
+labor_fte_common_A,4.0,FTE,Common dry-mix plant crew (all products),Baseline modeling assumption,,,
+labor_fte_bc_A,2.0,FTE,Added for BioCarb unit at dry-mix plant (1 operator per shift),,uniform,1.0,4.0
+labor_fte_common_B,3.0,FTE,Common ready-mix batching crew attributable to mortar,Baseline modeling assumption,,,
+labor_fte_bc_B,1.0,FTE,Added for BioCarb slurry unit at ready-mix plant,,uniform,0.5,2.0
+fte_hours,2000.0,h/FTE/yr,Hours per FTE,Baseline modeling assumption,,,
 price_il,160.0,USD/t,Type IL cement (same price as Type I/II); USGS mill value 2024-25 ~$151-163/t,USGS Mineral Commodity Summaries 2025,uniform,140.0,180.0
 price_fa,60.0,USD/t,"Class F fly ash, delivered",industry range $40-90/t (ACAA),uniform,40.0,90.0
 price_lc3_factor,0.8,-,LC3 price relative to IL (cost-based 0.8; parity 1.0; premium 1.15),LC3 project cost claims; European premium positioning,uniform,0.8,1.15
 price_sand,15.0,USD/t,Construction sand,USGS 2024,,,
-price_water,0.5,USD/t,Industrial water,assumption,,,
+price_water,0.5,USD/t,Industrial water,"Water and Wastewater Annual Price Escalation Rates for Selected Cities Across the United States, PNNL",,,
 price_elec,0.082,USD/kWh,US industrial electricity 2024,EIA,uniform,0.06,0.11
 price_diesel,1.0,USD/kg,Diesel ~$3.8/gal,EIA 2024,,,
-price_ta,5.0,USD/kg,"Industrial hydrolysable tannin extract. Bounds: spruce-bark tannin MSP 2.1 EUR/kg (2026 TEA-LCA) to pure chestnut tannin 16.6 EUR/kg (food grade, Italy 2024)",Sci. Direct chestnut tannin review 2024; PW Consulting 2026 citing TEA-LCA; approved FLAG-7 option b,uniform,2.0,16.0
-price_co2,60.0,USD/t,Purified CO2 purchased from the capture plant at a market price. Base 60 USD/t = mid-point of the USD 40-80/t cost of CO2 capture and purification at coal- and gas-fired power plants (a seller recovers at least this cost); range extends to bulk merchant liquid-CO2 prices (~100-120 USD/t),"IEA 2019, Putting CO2 to Use, p. 32 and p. 69; approved change (author comment, 2026-09-11)",uniform,40.0,120.0
-price_rcf,0.0,USD/t,RCF purchased from C&D recycler (by-product),user,uniform,0.0,30.0
+price_ta,5.0,USD/kg,"Industrial hydrolysable tannin extract. Bounds: spruce-bark tannin MSP 2.1 EUR/kg (2026 TEA-LCA) to pure chestnut tannin 16.6 EUR/kg (food grade, Italy 2024)",Sci. Direct chestnut tannin review 2024; PW Consulting 2026 citing TEA-LCA,uniform,2.0,16.0
+price_co2,60.0,USD/t,Purified CO2 purchased from the capture plant at a market price. Base 60 USD/t = mid-point of the USD 40-80/t cost of CO2 capture and purification at coal- and gas-fired power plants (a seller recovers at least this cost); range extends to bulk merchant liquid-CO2 prices (~100-120 USD/t),"IEA 2019, Putting CO2 to Use, p. 32 and p. 69",uniform,40.0,120.0
+price_rcf,0.0,USD/t,RCF purchased from C&D recycler (by-product),Baseline modeling assumption (RCF obtained as a no-cost byproduct),uniform,0.0,30.0
 plant_common_A_cost,1500000.0,USD (2024),"Installed cost of a 25 t/h automatic dry-mix mortar plant (silos, mixer, bagging, dust control); vendor turnkey range $0.8-2.5 M","vendor listings (lyroad, Aimix) - assumption",uniform,800000.0,2500000.0
 plant_common_B_cost,2000000.0,USD (2024),Installed cost of a 60 m3/h transit-mix batching plant; vendor range $1.5-3 M,vendor listings - assumption,uniform,1500000.0,3000000.0

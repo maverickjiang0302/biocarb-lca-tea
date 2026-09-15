@@ -43,9 +43,9 @@ BC_A,sand,0.9688849189962792
 BC_A,tannic acid make-up (purchased),0.2291755673602415
 BC_A,tap water (process make-up),0.0019136159874580166
 BC_A,labor,0.297094896
-BC_A,maintenance,0.2573729189286062
-BC_A,insurance,0.07998445393101102
-BC_A,capital recovery + tax,1.5164381514318108
+BC_A,maintenance,0.194419131389991
+BC_A,insurance,0.06006587555379316
+BC_A,capital recovery + tax,1.1494715702289113
 BC_B,CO2 purchase,0.06167690829576643
 BC_B,RCF purchase,0.0
 BC_B,Type IL cement,2.5670230567403793
@@ -59,9 +59,9 @@ BC_B,tannic acid make-up (purchased),0.2291755673602415
 BC_B,"tap water (mixing, make-up)",0.003816321449753162
 BC_B,tap water (process make-up),0.0019136159874580166
 BC_B,labor,0.37333333333333335
-BC_B,maintenance,0.13469056452401887
-BC_B,insurance,0.03897609461539956
-BC_B,capital recovery + tax,0.7589381157385663
+BC_B,maintenance,0.1343968592039752
+BC_B,insurance,0.03888316625213775
+BC_B,capital recovery + tax,0.7572260656556162
 LC3_A,LC3 cement,2.9642112000000007
 LC3_A,sand,0.9789479999999999
 LC3_A,labor,0.198063264
