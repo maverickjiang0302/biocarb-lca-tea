@@ -1,9 +1,17 @@
 {
-  "title": "BioCarb harmonized LCA-TEA model, inventory and results (v1.1.0)",
+  "title": "BioCarb harmonized LCA-TEA: model, inventory, results and figures (v1.3.0)",
+  "version": "1.3.0",
   "upload_type": "software",
-  "description": "Python model, life-cycle inventory, techno-economic parameters, results and figures for the manuscript 'Carbon-storing recycled concrete fines as a drop-in supplementary cementitious material: harmonized life-cycle and techno-economic assessment across deployment scales'. Licensed background unit impact scores (ecoinvent 3.7 / NETL openLCA) are not included; a schema and regeneration instructions are provided.",
-  "creators": [{"name": "[Surname, Given]", "affiliation": "[Institution]"}],
+  "access_right": "open",
   "license": "MIT",
-  "keywords": ["recycled concrete fines", "mineral carbonation", "supplementary cementitious material", "LCA", "TEA", "tannic acid"],
-  "related_identifiers": [{"identifier": "[DOI of article]", "relation": "isSupplementTo", "scheme": "doi"}]
+  "description": "Python model, life-cycle inventory, techno-economic parameters, results and figures for the article 'Biomolecule-regulated carbonation (BioCarb) as a drop-in supplementary cementitious material (SCM): harmonized life-cycle and techno-economic assessment'. Everything in the article that is a number, table or figure is produced by src/make_all.py from the CSV inputs in data/. Licensed background unit impact scores (ecoinvent 3.7 cut-off, NETL CO2U openLCA) are not included; docs/impact_factors_schema.md gives the schema and the dataset UUIDs needed to regenerate them.",
+  "creators": [
+    {"name": "Chen, Mingming", "affiliation": "Department of Civil, Construction, and Environmental Engineering, University of Alabama, Tuscaloosa, AL, USA"},
+    {"name": "Huang, Zhe", "affiliation": "National Laboratory of the Rockies, Golden, CO, USA"},
+    {"name": "Chen, Xi", "affiliation": "Department of Civil, Construction, and Environmental Engineering, University of Alabama, Tuscaloosa, AL, USA"},
+    {"name": "Wang, Xiaodong", "affiliation": "Department of Civil, Construction, and Environmental Engineering, University of Alabama, Tuscaloosa, AL, USA"},
+    {"name": "Wang, Jialai", "affiliation": "Department of Civil, Construction, and Environmental Engineering, University of Alabama, Tuscaloosa, AL, USA"},
+    {"name": "Jiang, Daqian", "affiliation": "Department of Civil, Construction, and Environmental Engineering, University of Alabama, Tuscaloosa, AL, USA"}
+  ],
+  "keywords": ["recycled concrete fines", "mineral carbonation", "supplementary cementitious material", "life cycle assessment", "techno-economic analysis", "tannic acid", "CO2 utilization"]
 }
