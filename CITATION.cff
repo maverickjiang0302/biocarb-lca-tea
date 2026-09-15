@@ -25,4 +25,12 @@ version: "1.3.0"
 date-released: "2026-09-15"
 license: MIT
 repository-code: "https://github.com/maverickjiang0302/biocarb-lca-tea"
+doi: 10.5281/zenodo.22767758
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22767758
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: 10.5281/zenodo.22767759
+    description: "Version 1.3.0"
 keywords: ["recycled concrete fines", carbonation, "supplementary cementitious material", "life cycle assessment", "techno-economic analysis"]

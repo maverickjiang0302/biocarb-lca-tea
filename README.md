@@ -59,4 +59,4 @@ Functional unit: 1 kg of mortar (as mixed, w/b 0.50) **plus** 0.0113 kWh of elec
 `src/build_manuscript_v21.py` assembles the manuscript markdown from the authors' edited draft (`manuscript/manuscript_v20_edited.md`, not tracked) and `results/*.csv`; `src/build_si.py` builds the SI.
 
 ## Citation
-See `CITATION.cff`. Zenodo: every GitHub release of this repository is archived automatically; the concept DOI will be added here after the first archived release (v1.3.0).
+See `CITATION.cff`. Zenodo: concept DOI https://doi.org/10.5281/zenodo.22767758 (always resolves to the latest version); this release (v1.3.0): https://doi.org/10.5281/zenodo.22767759.
