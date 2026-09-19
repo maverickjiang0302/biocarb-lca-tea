@@ -33,4 +33,7 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.22767759
     description: "Version 1.3.0 (2026-09-15): model, results and figures"
+  - type: doi
+    value: 10.5281/zenodo.22851009
+    description: "Version 1.4.0 (2026-09-19): model and data"
 keywords: ["recycled concrete fines", carbonation, "supplementary cementitious material", "life cycle assessment", "techno-economic analysis"]

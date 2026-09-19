@@ -56,4 +56,4 @@ Runtime is under a minute (Monte Carlo n = 1000, fixed seed; results are reprodu
 Functional unit: 1 kg of mortar (as mixed, w/b 0.50) **plus** 0.0113 kWh of electricity (the co-product of the captured CO2 used by BioCarb; Eq. S3). Reference systems supply that electricity from the same coal plant without capture (NETL CO2U system expansion); mineralized CO2 is not credited separately. Cradle-to-gate; transport excluded.
 
 ## Citation
-See `CITATION.cff`. Zenodo: concept DOI https://doi.org/10.5281/zenodo.22767758 (always resolves to the latest version). Version 1.3.0 (model, results and figures): https://doi.org/10.5281/zenodo.22767759. Version 1.4.0 (this release; model and data only, same results): DOI recorded in `CITATION.cff` once archived.
+See `CITATION.cff`. Zenodo: concept DOI https://doi.org/10.5281/zenodo.22767758 (always resolves to the latest version). Version 1.3.0 (model, results and figures): https://doi.org/10.5281/zenodo.22767759. Version 1.4.0 (this release; model and data only, same results): https://doi.org/10.5281/zenodo.22851009.
