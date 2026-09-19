@@ -1,15 +1,15 @@
-"""Reproduce every number and figure in the manuscript and SI.
+"""Reproduce every number and table in the manuscript and SI.
 
     python src/make_all.py [--mc N]
 
 Requires the local impact-factor file (see docs/impact_factors_schema.md).
-Outputs: results/*.csv, figures/*.png|pdf
+Outputs: results/*.csv (the figures are drawn from these tables by a separate script that is not part of the archive).
 """
-import argparse, json, sys, pathlib, time
+import argparse, sys, pathlib, time
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import numpy as np, pandas as pd
 from biocarb.params import load_process_params, load_tea_params, ROOT
-from biocarb import inventory as I, lca as L, tea as T, analysis as A, figures as G
+from biocarb import inventory as I, lca as L, tea as T, analysis as A
 
 RES = ROOT / "results"; RES.mkdir(exist_ok=True)
 
@@ -34,7 +34,7 @@ def main(n_mc: int):
     L.impacts(inv, F).to_csv(RES / "lca_flow_level.csv", index=False)
     L.validation(p, F).to_csv(RES / "lca_validation.csv", index=False)
     bench = F.loc["hand-mixed mortar RoW (validation only)", "GWP"] + I.electricity_coproduct(p) * F.loc[I.DS["nocapture"], "GWP"]
-    json.dump({"ecoinvent_hand_mixed_mortar_plus_coproduct_GWP": bench}, open(RES / "benchmark.json", "w"), indent=1)
+    pd.DataFrame({"parameter": ["ecoinvent_hand_mixed_mortar_plus_coproduct_GWP"], "value": [bench]}).to_csv(RES / "benchmark.csv", index=False)
 
     # 3. TEA
     res, con, eq = T.run_tea(inv, p, tp)
@@ -73,8 +73,6 @@ def main(n_mc: int):
     lit = A.normalize_literature_uptake(lit)
     lit.to_csv(RES / "literature_uptake_normalized.csv", index=False)
 
-    # 7. figures
-    G.all_figures()
     print(f"done in {time.time()-t0:.0f} s"); print(base.round(4)); print(probs.round(3))
 
 

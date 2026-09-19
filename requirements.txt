@@ -1,5 +1,6 @@
+# Packages needed to run the model (src/make_all.py) and the tests.
+# Versions used for the v1.4.0 archive: numpy 2.5.1, pandas 3.0.3, scipy 1.18.1, pytest 9.1.1 (Python 3.14).
 numpy>=1.24
 pandas>=2.0
 scipy>=1.10
-matplotlib>=3.7
 pytest>=7

@@ -1,10 +1,10 @@
 {
-  "title": "BioCarb harmonized LCA-TEA: model, inventory, results and figures (v1.3.0)",
-  "version": "1.3.0",
+  "title": "BioCarb harmonized LCA-TEA: model, inventory and results (v1.4.0)",
+  "version": "1.4.0",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "description": "Python model, life-cycle inventory, techno-economic parameters, results and figures for the article 'Biomolecule-regulated carbonation (BioCarb) as a drop-in supplementary cementitious material (SCM): harmonized life-cycle and techno-economic assessment'. Everything in the article that is a number, table or figure is produced by src/make_all.py from the CSV inputs in data/. Licensed background unit impact scores (ecoinvent 3.7 cut-off, NETL CO2U openLCA) are not included; docs/impact_factors_schema.md gives the schema and the dataset UUIDs needed to regenerate them.",
+  "description": "Python model, life-cycle inventory, techno-economic parameters and results for the article 'Biomolecule-regulated carbonation (BioCarb) as a drop-in supplementary cementitious material (SCM): harmonized life-cycle and techno-economic assessment'. Every number and table in the article is produced by src/make_all.py from the CSV inputs in data/, and every result table is included in results/. The figures and the documents were drawn and rendered from those result tables with separate scripts that are not part of this archive and add no number to the analysis. Licensed background unit impact scores (ecoinvent 3.7 cut-off, NETL CO2U openLCA) are not included; docs/impact_factors_schema.md gives the schema and the dataset UUIDs needed to regenerate them. Version 1.4.0 has the same model and results as version 1.3.0; only the figure and document scripts and the figure files were removed from the archive.",
   "creators": [
     {"name": "Chen, Mingming", "affiliation": "Department of Civil, Construction, and Environmental Engineering, University of Alabama, Tuscaloosa, AL, USA"},
     {"name": "Huang, Zhe", "affiliation": "National Laboratory of the Rockies, Golden, CO, USA"},

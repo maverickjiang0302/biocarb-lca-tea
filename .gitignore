@@ -1,5 +1,16 @@
 # Licensed background data - never commit
 entries_with_impacts.csv
 *.impacts.csv
+LOCAL_ONLY_*
+results/lca_flow_level.csv
+
+# The archive holds the model code and the CSV data only: src/biocarb, src/make_all.py, src/tests,
+# data/, results/, docs/. Manuscript production is local: paper/ (figure and document builders),
+# make_paper.py, the figure files and the manuscript sources.
+paper/
+make_paper.py
+figures/
+manuscript/
+
 __pycache__/
 .pytest_cache/

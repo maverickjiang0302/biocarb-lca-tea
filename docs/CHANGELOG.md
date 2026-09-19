@@ -45,3 +45,9 @@ v1.2.1 (2026-09-13) - SI revision
 - SI: Text S6, Table S2 (laboratory data) and Figure S1 deleted; Tables S3-S19 renumbered S2-S18; parameter table gains a 'process' column; TEA equations cite the NREL DCF convention (Davis et al. 2014, new ref. 54).
 - Provenance columns in data/parameters.csv, tea_parameters.csv and equipment.csv now name the actual sources (laboratory data of this work, vendor specifications, Scrivener et al. 2018, Davis et al. 2014) instead of the superseded draft.
 - Manuscript cross-references to SI tables updated by src/build_manuscript_v21.py.
+
+
+v1.4.0 (2026-09-19) - archive trimmed to model and data
+- Same model, inputs and results as v1.3.0. The figure script (src/biocarb/figures.py), the SI and manuscript builders (src/build_si.py, src/build_manuscript_v21.py) and the figure files (figures/) are no longer part of the repository or the Zenodo archive; they are kept locally and produce the figures from results/*.csv without adding any number.
+- src/make_all.py writes results only; results/benchmark.json replaced by results/benchmark.csv.
+- requirements.txt limited to what the model needs (matplotlib dropped); results/lca_flow_level.csv and any LOCAL_ONLY_* file are ignored explicitly.
